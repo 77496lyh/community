@@ -2,7 +2,6 @@ package com.nowcoder.community.service;
 
 import com.nowcoder.community.dao.DiscussPostMapper;
 import com.nowcoder.community.entity.DiscussPost;
-import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,13 +9,16 @@ import java.util.List;
 
 @Service
 public class DiscussPostService {
+
     @Autowired
     private DiscussPostMapper discussPostMapper;
 
-    public List<DiscussPost> findDiscussPosts(int userId,int offset,int limit){
-        return discussPostMapper.selectDiscussPosts(userId,offset,limit);
+    public List<DiscussPost> findDiscussPosts(int userId, int offset, int limit) {
+        return discussPostMapper.selectDiscussPosts(userId, offset, limit);
     }
-    public int findDiscussRows(int userId){
+
+    public int findDiscussPostRows(int userId) {
         return discussPostMapper.selectDiscussPostRows(userId);
     }
+
 }
